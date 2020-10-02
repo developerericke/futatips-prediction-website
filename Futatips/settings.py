@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Futatips.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Templates','Templates/admins/'],
+        'DIRS': ['Templates',os.path.join(BASE_DIR, 'backend', 'Templates', 'backend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
