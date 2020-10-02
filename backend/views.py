@@ -10,6 +10,7 @@ from  django.utils.crypto import get_random_string
 
 import os
 
+
 from mailjet_rest import Client
 from dotenv import load_dotenv
 load_dotenv()
@@ -93,7 +94,8 @@ def dashboard(request):
         }
 
         return render(request, 'admins/admin.html',context)
-    except:
+    except Exception as e:
+        print(e)
         return render(request, 'admins/NOT-FOUND.html', {'error':'Internal Server Error'})
 
 
