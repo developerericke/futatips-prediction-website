@@ -4,36 +4,36 @@ from  django.utils.timezone import now
 from django.contrib.auth.models import User
 # Create your models here.
 class Competitions(models.Model):
-    country = models.CharField(max_length=20,primary_key=True,unique=True)
+    country = models.CharField(max_length=50,primary_key=True,unique=True)
 
     def __str__(self):
         return self.country
 
 
 class Leagues(models.Model):
-    league = models.CharField(max_length=30,unique=True,primary_key=True)
+    league = models.CharField(max_length=50,unique=True,primary_key=True)
     country = models.ForeignKey(Competitions,on_delete=models.CASCADE)
-    league_icon = models.CharField(max_length=30)
+    league_icon = models.CharField(max_length=100)
 
     def __str__(self):
         return self.league
 
 class Predictions (models.Model):
-    country = models.CharField(max_length=30)
+    country = models.CharField(max_length=50)
     game_title = models.SlugField(default="team1-vs-team2")
-    league= models.CharField(max_length=20)
-    match = models.CharField(max_length=50)
-    kickoff_date = models.CharField(max_length=40)
-    kickoff_time = models.CharField(max_length=10)
-    match_image = models.CharField(max_length=40,default='DEFAULT_IMAGE')
-    prediction_one_type = models.CharField(max_length=40)
-    prediction_one_value = models.CharField(max_length=30)
+    league= models.CharField(max_length=50)
+    match = models.CharField(max_length=70)
+    kickoff_date = models.CharField(max_length=50)
+    kickoff_time = models.CharField(max_length=50)
+    match_image = models.CharField(max_length=100,default='DEFAULT_IMAGE')
+    prediction_one_type = models.CharField(max_length=50)
+    prediction_one_value = models.CharField(max_length=50)
     prediction_one_odds = models.CharField(max_length=4)
-    prediction_two_type = models.CharField(max_length=40,default='Non-Provided',null=False,blank=False)
-    prediction_two_value = models.CharField(max_length=30,default='Non-Provided',null=False,blank=False)
+    prediction_two_type = models.CharField(max_length=50,default='Non-Provided',null=False,blank=False)
+    prediction_two_value = models.CharField(max_length=50,default='Non-Provided',null=False,blank=False)
     prediction_two_odds = models.CharField(max_length=4,default='Non-Provided')
-    prediction_three_type = models.CharField(max_length=40,default='Non-Provided')
-    prediction_three_value = models.CharField(max_length=30,default='Non-Provided')
+    prediction_three_type = models.CharField(max_length=50,default='Non-Provided')
+    prediction_three_value = models.CharField(max_length=50,default='Non-Provided')
     prediction_three_odds = models.CharField(max_length=4,default='Non-Provided')
     venue = models.CharField(max_length=40,default='Non-Provided')
     match_overview = models.TextField(default='Non-Provided')

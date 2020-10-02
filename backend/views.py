@@ -11,12 +11,14 @@ from  django.utils.crypto import get_random_string
 import os
 
 from mailjet_rest import Client
+from dotenv import load_dotenv
+load_dotenv()
 api_key = os.getenv("Mailjetkey")
 api_secret = os.getenv("Mailjetsecret")
 mailjet = Client(auth=(api_key, api_secret), version='v3.1')
 import os
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
+
 # Create your views here.
 
 def login_user(request):
