@@ -1,0 +1,129 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div style="margin-top: 20px;" id="profile-wrapper" class="p-1">
+               {%csrf_token%}
+            <h3 class="text-center p-1 font-weight-bolder" style="text-decoration: underline;color:brown">Account Management</h3>
+               <!-- //manage personal details -->
+               <div class="p-2" id="user-details-manage">
+                   <h4 style="text-decoration:underline">Manage Personal Details</h4>
+                   <div style="display: none;text-align: center;" id="psdetailsstatus" class="alert p-0 "></div>
+                   <div class="action-form form-group">
+                         <small><label class="font-weight-bold m-0" for="email">Email Address</label></small>
+                         <div class="input-group mb-3 m-1">
+                            <input disabled data-email="{{email}}" value="{{email}}" type="email" name="email" class="form-control" id="email">
+                             <div class="input-group-append">
+                                 <button id="editemail" disabled class="btn btn-info btn-sm">Edit</button>
+                             </div>
+                             
+                             
+                         </div>
+                   </div>
+                   <div class="action-form form-group">
+                       <small><label for="fullname" class="font-weight-bold m-0">Username</label></small>
+                       <div class="input-group mb-3 m-1">
+                        <input value="{{username}}" disabled type="text" name="fullname" class="form-control" id="fullname">
+                        <button id="editname" class="btn btn-info btn-sm">Edit</button> 
+                       </div>
+                       
+                   </div>
+               </div>
+
+               <!-- //manage password -->
+               <div class="p-2" id="manage-password">
+                   <h4 style="text-decoration: underline;">Update Password</h4>
+                   <form class="action-form" id="upatepassword" action="">
+                       <div  style="display: none;" id="passwordUpdate" class="alert p-0 text-center m-0">
+
+                       </div>
+                       <div class="form-group">
+                           <label for="oldpassword">Current Password</label>
+                           <div class="input-group">
+                            <input type="password" name="oldpassword" class="form-control" id="oldpassword">
+                            <div class="input-group-append">
+                                <div data-password="oldpassword" class="input-group-text passwordtoggle">Show</div>
+                            </div>
+                           </div>
+                             
+                       </div>
+                       <div class="form-group">
+                        <label for="newpassword">New Password</label>
+                        <div class="input-group">
+                         <input type="password" name="newpassword" class="form-control" id="newpassword">
+                         <div class="input-group-append">
+                             <div data-password="newpassword" class="input-group-text passwordtoggle">Show</div>
+                         </div>
+                        </div>
+                          
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmpassword">Confirm New Password</label>
+                        <div class="input-group">
+                         <input type="password" name="confirmpassword" class="form-control" id="confirmpassword">
+                         <div class="input-group-append">
+                             <div data-password="confirmpassword" class="input-group-text passwordtoggle">Show</div>
+                         </div>
+                        </div>
+                          
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-success">Update Password</button>
+                    </div>
+                   </form>
+
+               </div>
+               <div id="danger-zone" style="margin-top: 20px;">
+                <div class="border p-1" >
+                    <h6 class="text-danger font-weight-bold" style="text-decoration: underline;">Danger Zone</h6>
+                     <div class="bg-warning font-weight-light m-1">
+                        Note :<span class="font-weight-bold">Account Deletion is an Irreversible Action</span>
+                     </div>
+                </div>
+                <div class="text-center m-2">
+                 <button data-target="#mymodal" data-toggle="modal" class="btn btn-danger btn-sm">Proceed to Delete My Account</button>
+                </div>
+                
+                <div class="modal" id="mymodal">
+                     <div class="modal-dialog modal-sm">
+                      
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                
+                              <h5 style="text-decoration: underline;" class="text-danger font-weight-bold">Delete Account</h5>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             </div>
+                             <div class="modal-body">
+                                 <div style="display: none;" id="delstatus" class="alert p-0 text-center">
+
+                                 </div>
+                                 <form id="deleteaccount" action="">
+                                     <label for="del_conf_password " class="font-weight-bold" style="font-weight:bold"><small>Input your current Password to confirm Action</small></label>
+                                      <div class="input-group">
+                                         <input type="password" name="del_confirm_password" id="del_conf_password" class="form-control"> 
+                                       <div class="input-group-append">
+                                           <div id="del_confirm_password_toggle" class="input-group-text">Show</div>
+                                       </div> 
+                                     </div>
+ 
+                                     <div class="m-2 text-center">
+                                         <button class="btn font-weight-bold btn-danger btn-sm">Proceed</button>
+                                     </div>
+                                     
+                                 </form>
+ 
+                             </div>
+                              
+                         </div>
+                         
+                     </div>
+                     
+                </div>
+ 
+            </div>
+           </div>
+           
+  {%endblock%}

@@ -1,0 +1,99 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div id="verified-mail-wrapper" class="p-1">
+               {% csrf_token %}
+               <div id="verifytok" data-verifytoken="{{token}}" style="display:none"></div>
+
+                {% if token_state == 'accepted' %}
+
+ <div style="display:none" class="alert alert-success text-center alert-dismissible">
+                  Your Email Address has been Verified Successfully. Use the form below to Set Up your account and get Started
+                 <button class="close" data-dismiss="alert">&times</button>
+                </div>
+
+                  <div style="display: {{get_started}}" id="setup-account" class="p-1">
+                      <div id="errors" style="display: none;" class="alert p-1  m-1 text-center alert-danger">
+
+                      </div>
+                      <h6 style="text-decoration: underline;font-weight: bold;text-align: center;">Account Setup</h6>
+                      <form id="registeruser" >
+                          <div class="form-group">
+                            <label id="usernamelabel" for="username">Choose your Username</label>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" name="username" id="username">
+                            </div>
+                          </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                 <div class="input-group">
+                                    <input type="password" name="password1" id="password" class="form-control">
+                                     <span data-to-toggle="password" class="input-group-text passwordtoggle">
+                                         show</span>
+
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmpassword">Confirm Password</label>
+                                 <div class="input-group">
+                                    <input type="password" name="password2" id="confirmpassword" class="form-control">
+                                     <span data-to-toggle="confirmpassword"  class="input-group-text passwordtoggle">show</span>
+
+                                 </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button id="proceedbtn"  type="submit" class="btn btn-info ">Proceed</button>
+                                <div style="display: none;" id="formstatus" class="alert alert-success m-2">
+
+                                </div>
+                            </div>
+
+
+                      </form>
+
+                  </div>
+
+                  <div  style="display:{{password_reset}}" id="reset-password-section">
+                      <h6 class="text-center" style="text-decoration: underline;font-weight: bold;">Account Recovery</h6>
+                      <div class="alert text-center" id="resetstatus">  </div>
+                      <form class="p-1" id="reset-password-form">
+                          <div class="form-group">
+                              <label for="newpassword">Password</label>
+                              <div class="input-group">
+                                  <input type="password" name="newpassword" class="form-control" id="newpassword">
+                                   <span class="input-group-prepend">
+                                       <span data-to-toggle="newpassword" class="input-group-text passwordtoggle">Show</span>
+                                   </span>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="newpassword">Confirm Password</label>
+                            <div class="input-group">
+                                <input type="password" name="confirmpassword" class="form-control" id="confirmnewpassword">
+                                 <span class="input-group-prepend">
+                                     <span data-to-toggle="confirmnewpassword" class="input-group-text passwordtoggle">Show</span>
+                                 </span>
+                            </div>
+                        </div>
+                        <div class="text-center"><button type="submit" class="btn btn-primary">Proceed</button></div>
+                      </form>
+                  </div>
+
+
+               {% else %}
+
+                    <div class="alert alert-danger text-center ">
+                    The verification Token Provided is Incorrect.Please check your email <span class="font-weight-bold">someone@mail.com</span>  and retry clicking on the link again.<br>
+                    <small>If the problem persists,Contact the Admin.</small>
+
+                  </div>
+               {% endif %}
+
+
+           </div>
+   {%endblock%}

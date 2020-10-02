@@ -1,0 +1,235 @@
+body{
+    margin:0;
+    padding:0;
+}
+#page-wrapper{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    
+}
+#content-wrapper{
+    width: 100%;
+    padding-bottom: 200px;
+}
+#footer-wrapper{
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    width:100%;
+}
+nav{
+    text-align: end;
+}
+nav li a{
+   
+    text-decoration: underline;
+}
+nav img{
+    width:100px;
+}
+.stats-center{
+  width: 97%;
+  margin-left: 1.5%;
+  padding-top: 20px;
+
+}
+.stats-center .card{
+    margin-left: 2%;
+    width:18%;
+   height:150px;
+     margin-bottom: 10px;
+}
+.account-action{
+    padding-top: 20px;
+}
+.account-action img{
+    width:90%;
+    margin-left: 5%;
+    height: 150px;
+}
+.account-action .card{
+    cursor: pointer;
+    width:25%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+.account-action .card:hover{
+    background-color: honeydew;
+   
+}
+#addpred form{
+    width:80%;
+    margin-left: 10%;
+}
+#addpred form label{
+    font-weight: bold;
+    font-size: small;
+}
+.collapsebtn{
+    width:33%;
+    margin-bottom: 10px;
+}
+#addpred form button{
+    width:30%;
+    border-radius: 10px;
+    margin-top:20px;
+    margin-left: 35%;
+}
+#detailed-admin-pred{
+  width: 80%;
+  margin-left: 10%;
+}
+
+#detailed-admin-pred img{
+    margin-top: 10px;
+    width:95%;
+    margin-left: 2.5%;
+    height: 300px;
+}
+.card-footer div{
+    display: block;
+    padding: 2px 10px;
+}
+.match-info{
+    font-size: small;
+    display: block;
+    padding: 0px 5px;
+}
+#team-forms{
+    text-align: center;
+    padding: 0px 10px;
+    height: 150px;
+}
+#team-forms div{
+    padding: 5px;
+}
+#team-forms h6{
+    font-weight: bold;
+}
+#team-forms span{
+  padding: 5px 10px;
+}
+#match-det-info{
+    width: 50%;
+    margin-left: 3%;
+    margin-top: 2%;
+    padding: 5px 0px;
+    border:1px solid gray;
+    border-radius: 0 0 10px 10px;
+    
+}
+.missing-players-div{
+    padding: 0px 10px;
+    
+}
+.missing-players-div h6{
+    
+    text-decoration: underline;
+}
+.pred-desc{
+    padding: 0px 10px;
+}
+.pred-desc div{
+    border:1px solid lightsteelblue;
+    padding: 10px 0px;
+}
+
+#user-details-manage{
+    border:1px solid gray;
+}
+#manage-password{
+    margin-top:20px;
+    border:1px solid gray;
+}
+#danger-zone{
+    border:1px solid gray;
+    margin-top: 30px;
+}
+#profile-wrapper{
+    width:80%;
+    margin-left:10%
+}
+#profile-wrapper input{
+    width:70%;
+}
+.action-form{
+    width:70%;
+    margin-left:2%;
+}
+#add-user{
+    width:60%;
+}
+#add-user-form{
+    border:1px solid black;
+    border-radius:5px 5px 10px 10px;
+    
+}
+#manage-existing-user{
+    width:60%;
+    
+}
+#users{
+    border: 3px solid gainsboro;
+    
+    width:95%;
+    margin-left: 2%;
+}
+#manage-existing-user table{
+    width:100%;
+    min-width: 100% !important;
+}
+#verified-mail-wrapper{
+    margin-top:20px;
+    width:80%;
+    margin-left: 10%;
+    border:2px solid lightslategrey;
+    border-radius: 5px 5px 10px 10px;
+    background-color: whitesmoke;
+}
+#setup-account{
+    width:60%;
+    margin-left: 20%;
+    background-color: white;
+}
+#league-manage{
+    width:90%;
+    margin-left: 5%;
+    border:2px solid  lightgray;
+    border-radius: 5px 5px 10px 10px;
+ 
+}
+#findcompetition{
+    width: 80%;
+    margin-left: 10%;
+}
+#comp-seach-label{
+    display: none;
+}
+#authenticate-user-wrapper{
+    margin-top: 50px;
+    width:40%;
+    margin-left:30%;
+    border:2px solid lightgray;
+    height: 55vh;
+    border-radius:5px 5px 15px 15px;
+}
+#img-preview img{
+ width:120px;
+ height: 50px;
+}
+#reset-password-section{
+    width:70%;
+    margin-left: 15%;
+}
+#my-predictions a{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin:7px 0;
+}
+#my-predictions div{
+    width:90%;
+    margin-left: 5%;
+    border-radius: 10px 10px 20px 20px;
+}

@@ -1,0 +1,1 @@
+web: gunicorn Futatips.wsgi --log-file -

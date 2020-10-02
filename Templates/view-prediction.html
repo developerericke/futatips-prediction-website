@@ -1,0 +1,211 @@
+{% extends 'front-skeleton.html' %}
+{% load static %}
+            <!-- content-section -->
+           
+          {% block content %}
+            <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div>
+               
+             <div class="prediction-center p-0 card">
+                 <div class="row p-0 m-0 ">
+                     <div class="col-md-8 border border-info p-0 m-0">
+                        <div class="card-header">
+                            <div class="league-logo">
+                             <img src="{% static 'images/epl-logo.jpg' %}" alt="League Logo">
+                              <strong>{{game.match}}</strong>
+                            </div>
+                            
+                            
+                        </div>
+                       
+                        <div class="card-body p-1 ">
+                            <div class="match-logo">
+                             <img src="{% static '/images/attachment_120154674.jpeg' %}"  alt="Match Image">
+                            </div>
+         
+                           
+                             <div class="match-details small p-2 border ">
+                                 <span class="font-weight-bold">Match Details</span>
+                                 <div class="match-venue"> <span class="type p-1">Venue :</span> <span class="text-info p-1">{% if game.venue != 'Not-Provided' %}{{game.venue}}{%else%}unavailable{%endif%}</span></div>
+                                 <div class="match-time"><span class="type p-1">Kickoff Time :</span> <span class="text-info p-1">{{game.kickoff_time}} GMT</span> </div>
+                                 <div id="referee"><span class="type p-1">Referee :</span><span class="text-info p-1">{% if game.referee != 'Not-Provided' %}{{game.referee}}{%else%}unavailable{%endif%}</span> </div>
+                             </div>
+                         
+                            
+                            <div  class="font-weight-normal match-overview">
+                                <span style="text-decoration: underline;font-weight: bold;"><small>{{game.date}} [{{game.auther}}]</small></span><br>
+                                {% if game.match_overview  == 'Not-Provided' %}
+                        <small>Unavailable</small>
+                                {%else%}
+{{game.match_overview }}
+                                {%endif%}
+                            </div>
+                            <div id="extra-match-info">
+                                 <h6 class="text-danger p-1 lead font-weight-bold" style="text-decoration: underline;">Missing Players</h6>
+                                <div class="missing-players ">
+                                    <div id="team-one">
+                                        <div>{{game.teamone}}</div>
+                                        {% if game.team_one_mp != 'Not-Provided' %}
+                                        <span>{{game.team_one_mp}}</span>
+                                        {% else %}
+                                        <span class="text-info"><small>Not provided</small></span>
+                                        {%endif%}
+                                    </div>
+                                    <div id="team-two">
+                                     <div>{{game.teamtwo}}</div>
+                                        {% if game.team_two_mp != 'Not-Provided' %}
+                                     <span>{{game.team_two_mp}}</span>
+                                        {%else%}
+                                     <span class="text-info"><small>Not provided</small></span>
+                                     {%endif%}
+                                 </div>
+                               
+         
+                                </div>
+                                <div id="teamforms-head">Team Forms</div>
+                                <div id="teams-form" class="d-flex d-wrap">
+                                    <div   id="team-one-form">
+                                        <span style="border: none;" class="font-weight-bolder"><small>{{game.teamone}}</small></span><br><br>
+
+                                        {% if game.team_one_fm_gm1 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_one_fm_gm1 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_one_fm_gm1 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+                                        {% if game.team_one_fm_gm2 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_one_fm_gm2 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_one_fm_gm2 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                        {% if game.team_one_fm_gm3 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_one_fm_gm3 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_one_fm_gm3 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                        {% if game.team_one_fm_gm4 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_one_fm_gm4 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_one_fm_gm4 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                        {% if game.team_one_fm_gm5 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_one_fm_gm5 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_one_fm_gm5 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+
+                                    </div>
+                                    <div id="team-two-form">
+                                     <span style="border: none;" class="font-weight-bolder"><small>{{game.teamtwo}}</small></span><br><br>
+                                     {% if game.team_two_fm_gm1 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_two_fm_gm1 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_two_fm_gm1 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                        {% if game.team_two_fm_gm2 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_two_fm_gm2 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_two_fm_gm2 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                         {% if game.team_two_fm_gm3 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_two_fm_gm3 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_two_fm_gm3 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                         {% if game.team_two_fm_gm4 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_two_fm_gm4 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_two_fm_gm4 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+
+                                         {% if game.team_two_fm_gm5 == 'win' %}
+                                        <span class="bg-success">W</span>
+                                        {% elif game.team_two_fm_gm5 == 'draw' %}
+                                            <span class="bg-warning">D</span>
+                                        {% elif game.team_two_fm_gm5 == 'lost' %}
+                                            <span class="bg-danger">L</span>
+                                        {%else%}
+                                          <span class="bg-transparent">N</span>
+                                        {%endif%}
+                                 </div>
+                                </div>
+                            </div>
+                            <div id="matchprediction-head">Predictions</div>
+                            <div id="match-predictions" class="card p-1 m-1 text-success font-weight-bold">
+                                <div class="prediction">{{game.prediction_one_type}} - {{game.prediction_one_value}}   @ {{game.prediction_one_odds}} (betway)</div>
+                                 {% if game.prediction_two_value == 'Not-Provided' %}
+<!--                                 <div class="prediction">{{game.prediction_one_type}} - {{game.prediction_one_value}}   @ {{game.prediction_one_odds}} (betway)</div>-->
+
+                                {%else%}
+                                <div class="prediction">{{game.prediction_two_type}} - {{game.prediction_two_value}}   @ {{game.prediction_two_odds}} (betway)</div>
+
+                                {%endif%}
+
+                                {% if game.prediction_three_value == 'Not-Provided' %}
+
+                                {%else%}
+ <div class="prediction">{{game.prediction_three_type}} - {{game.prediction_three_value}}   @ {{game.prediction_three_odds}} (betway)</div>
+
+                                {%endif%}
+                            </div>
+         
+                        </div>
+                     </div>
+                     <div class="col-md-4 p-0 m-0 border border-dark" id="sec-two-view-more">
+                        <div class="related-prediction p-2 m-1">
+                            <h5 style="text-decoration: underline;">More Predictions</h5>
+                            {% for match in moregames%}
+                           <a href="/view-prediction/{{match.game_title}}/{{match.kickoff_date}}">{{match.match}}</a>
+                            {%endfor%}
+
+                        </div>
+                     </div>
+                 </div>
+            
+
+              
+             </div>   
+          
+           
+            {% endblock %}

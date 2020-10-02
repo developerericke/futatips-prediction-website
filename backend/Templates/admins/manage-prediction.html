@@ -1,0 +1,26 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+
+           <!-- page content -->
+           <div id="my-predictions">
+               <h5 style="text-decoration: underline;" class="p-2 m-1">My Prediction</h5>
+               <div class="p-1" style="background-color:beige;">
+                   {%if prediction in predictions %}
+
+                    {% for prediction in predictions %}
+                   <h4 class="p-1"><a href="/admins/view-tip/{{prediction.game_title}}/{{prediction.kickoff_date}}">{{prediction}} [{{prediction.kickoff_date}}]</a></h4>
+
+                   {%endfor%}
+                   {%else%}
+                   <p class="text-center" style="text-align:centre">You do not have any predictions written yet</p>
+                   {%endif%}
+
+
+               </div>
+            
+           </div>
+
+    {%endblock %}

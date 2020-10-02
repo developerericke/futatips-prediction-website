@@ -1,0 +1,66 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div>
+               {% csrf_token %}
+               <h4 style="text-decoration: underline;" class="font-weight-bold text-center p-2">Manage Users</h4>
+              <div id="users">
+                  <div id="add-user" class="m-3 p-1 m-1">
+                      <h6 class="text-center font-weight-bold text-success" style="text-decoration: underline;">Use the Form Below to add a New Writer</h6>
+                      
+                      <div id="add-user-form" class="form-group p-1">
+                           <div id="action-status" style="display: none;" class="alert alert-success  text-center m-1 p-0">
+                              Success
+                           </div>
+                          <form id="add-writer-form">
+
+
+                            
+                                <label for="email" class="font-weight-bold">Email</label>
+                                <input placeholder="enter email" type="email" required name="email" id="email" class="form-control">
+                                <div class="text-center">
+                                  <button id="addwriter" type="submit"  class="btn btn-primary btn-sm m-2">Add Writter</button>
+                                </div>
+                            </form>
+                          
+                            
+                         
+                          
+                        </div>
+
+                  </div>
+                  <div id="manage-existing-user" class="p-1 m-2">
+                    <h6 class="text-center" class="font-weight-lighter" style="text-decoration: underline;color:coral">Manage Existing Users</h6>
+                      
+                        <table  class="table table-responsive-md  table-striped ">
+                        <thead>
+                             <tr>
+                                  <th style="color:brown">Users</th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                             </tr>
+                        </thead>
+                        <tbody>
+
+                          {% for someuser in users %}
+                            <tr class="p-1">
+                                <td style="font-weight: bold;">{{someuser.email}}</td>
+                                <td><button data-user="{{someuser.email}}"  class="btn recoveraccount btn-info btn-sm">Recover</button></td>
+                                {% if someuser.is_staff == False %}
+                                <td><button data-user="{{someuser.email}}" class="btn banaccount btn-warning btn-sm">Ban</button></td>
+
+                                <td><button data-user="{{someuser.email}}" class="btn deleteaccount btn-danger btn-sm">Delete</button></td>
+                                {%endif%}
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                   </table>
+                  </div>
+                  
+              </div>
+            </div>
+{%endblock%}

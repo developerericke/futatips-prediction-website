@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN AREA</title>
+    <link rel="stylesheet" href="{% static 'css/smallscreen.css' %}" media="screen and (max-width:600px)">
+    <link rel="stylesheet" href="{% static 'css/largescreen.css' %}" media="screen and (min-width:600px)">
+    <link  rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+</head>
+<body>
+    <div class="container-fluid p-0" id="page-wrapper">
+       <div id="content-wrapper">
+           <!-- navbar -->
+           <nav class="navbar navbar-expand-md sticky-top  navbar-dark bg-dark">
+               <div style="background-color:white" class="navbar-brand">
+                   <a href="/admins/dashboard/">
+                    <img src="{% static 'images/site-logo.png' %}" alt="logo">
+                </a>
+               </div>
+
+               <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsediv" type="button">
+                   <span class=" navbar-toggler-icon"></span>
+               </button>
+
+               <div class="collapse navbar-collapse justify-content-end" id="collapsediv">
+                   <ul class="navbar-nav navbar-items text-center text-white">
+                       <li class="nav-item" > <a href="/admins/dashboard/" class="nav-link">Home</a> </li>
+                       <li class="nav-item" > <a href="/admins/view-tip/" class="nav-link">Predictions</a> </li>
+                       <li class="nav-item" > <a href="/admins/users/" class="nav-link">Users</a> </li>
+                       <li class="nav-item" > <a href="/admins/competitions/" class="nav-link">Competitions</a> </li>
+
+                       <li class="nav-item" > <a href="/admins/profile/" class="nav-link">My Account</a> </li>
+                       <li class="nav-item" > <a href="/admins/logout/" class="nav-link">Logout</a> </li>
+                   </ul>
+               </div>
+           </nav>
+
+           <!-- page content -->
+
+          {% block content %}
+
+           {%endblock%}
+       <div id="footer-wrapper">
+          <footer class="bg-dark text-center text-white font-weight-bolder">
+              <span>&copy; 2020</span>
+
+          </footer>
+       </div>
+    </div>
+   <!-- scripts here -->
+    <script src="{% static 'scripts/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'scripts/popper.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>

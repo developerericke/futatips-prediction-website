@@ -1,0 +1,183 @@
+/* Mobile Style */
+
+body{
+    margin: 0%;
+    padding:0px;
+    width: 100%;
+    max-width: 100%!important;
+      
+}
+#page-wrapper{
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100% !important;
+    position: relative;
+
+}
+#content-wrapper{
+    position: relative;
+    padding-bottom: 390px;
+
+}
+#footer-wrapper{
+    position: absolute;
+    bottom: 0;
+  
+
+}
+nav img{
+   width:100px;
+}
+#collapsablediv{
+    border-top: 2px solid white;
+   
+}
+.navbar-items{
+    text-align: center;
+    text-decoration: underline;
+}
+.card{
+    margin-bottom: 2%;
+    width: 100%;
+    margin-left:3%;
+    padding: 0;
+    margin: 0;
+}
+.highligh-wrap{
+    padding: 0;
+    margin: 0;
+   
+}
+.league-logo img{
+   max-width:40px !important;
+   max-height: 40px !important;
+}
+.match-logo{
+   padding: 1%;
+  
+}
+.match-logo img{
+    height: 22vh !important;
+    width: 100% !important;
+}
+.tip-desc{
+    padding: 1%;
+    margin: 0;
+}
+#preview-sections{
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+#preview-sections a{
+  display: block;
+}
+#preview-sections h6{
+    text-decoration: underline;
+}
+.footer-items div{
+    width: 100%;
+}
+.footer-items div a{
+    display: block;
+    color: gray;
+   
+}
+
+/* view tip */
+.match-overview{
+    padding: 1% 5px;
+    text-align: justify;
+    background-color: wheat;
+  
+}
+.missing-players{
+    margin-bottom: 5%;
+}
+
+.missing-players #team-one div{
+ text-decoration: underline;
+ font-weight: bold;
+}
+.missing-players #team-one span{
+    font-style:italic;
+    padding-left: 2px;
+}
+.missing-players #team-two div{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.missing-players #team-two span{
+    font-style:italic;
+    padding-left: 2px;
+}
+/* #team-one-form{
+    width: 50%;
+} */
+#teams-form span{
+  margin: 1px;
+  padding: 5px;
+}
+#teams-form{
+ width:100%;
+}
+#teams-form div{
+    width:50%;
+    text-align: center;
+
+}
+#teamforms-head{
+    
+    text-align: center;
+    font-size: larger;
+    color: gray;
+    text-decoration: underline;
+}
+#matchprediction-head{
+    font-weight: bold;
+    margin-top:20px;
+    text-align: center;
+    font-size: larger;
+    color: rgb(27, 26, 26);
+    text-decoration: underline;
+}
+.related-prediction a{
+    display:block;
+}
+
+/* user filtered */
+#user-preference{
+    margin-bottom:50px;
+}
+#user-preference a{
+    font-size: larger;
+ display: block;
+}
+#authers{
+    margin-bottom: 100px;
+}
+#authers div{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+
+
+}
+#authers img{
+    border-radius: 130px;
+    width:80%;
+    margin-left: 10%;
+    height: 300px;
+}
+
+#accum-games img{
+  width:30px;
+}
+#accumulator-section{
+    margin-top:20px;
+    width:95%;
+    margin-left: 2.5%;
+    margin-bottom:170px;
+}

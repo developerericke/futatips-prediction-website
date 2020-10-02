@@ -1,0 +1,186 @@
+ {% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div id="detailed-admin-pred">
+               <div class="card">
+                   <div class="card-header">
+                       {% csrf_token %}
+                    <span id="prediction-id" style="display: none;">{{tip.game_title}}</span>
+                     <div style="display: none;" id="pred-details" data-country="{{tip.country}}" data-league="{{tip.league}}"></div>
+                       <h5 id="match" style="text-decoration: underline;"> {{tip.match}}</h5>
+                       <div class="font-weight-bold float-right">
+                           {% if editable == True %}
+                           <button data-game="{{tip.game_title}}" id="editbutton" class="btn btn-info btn-sm">Edit</button>
+                           <button data-game-date="{{tip.date}}" data-game="{{tip.game_title}}" id="deletebutton" class="btn btn-danger btn-sm">Delete</button>
+                           {% endif %}
+                       </div>
+                   </div>
+
+                   <div class="card-body p-0">
+                       <img src="{% static '/images/37587-O1APWM.jpg' %}" alt="match-image">
+                       <div class="match-det">
+                           <div id="match-det-info">
+
+                            <span class="match-info">Venue : <span id="venue"> {{tip.venue}}</span></span>
+                            <span  class="match-info">Kickoff :<span id="kickoffdate" class="p-1">{{tip.kickoff_date}} </span>,<span id="kickofftime">{{tip.kickoff_time}}</span> GMT </span>
+                            <span  class="match-info">Referee : <span id="referee">{{tip.referee}}</span></span>
+                           </div>
+                           
+                           <div id="team-forms">
+                            <div id="team1-form">
+                                <h6>{{tip.teamone}} Last 5 Games</h6>
+                                    {% if tip.team_one_fm_gm1 == "win" %}
+                                    <span id="teamonefmg1" data-result="{{tip.team_one_fm_gm1}}" class="bg-success">W</span>
+                                    {%elif tip.team_one_fm_gm1 == 'draw' %}
+                                    <span id="teamonefmg1" data-result="{{tip.team_one_fm_gm1}}"  class="bg-warning">D</span>
+                                    {% elif tip.team_one_fm_gm1 == 'lost' %}
+                                    <span id="teamonefmg1" data-result="{{tip.team_one_fm_gm1}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamonefmg1" data-result="{{tip.team_one_fm_gm1}}"  class="bg-info">N</span>
+                                   {%endif%}
+                                  {% if tip.team_one_fm_gm2 == 'win' %}
+                                    <span id="teamonefmg2" data-result="{{tip.team_one_fm_gm2}}" class="bg-success">W</span>
+                                    {%elif tip.team_one_fm_gm2 == 'draw' %}
+                                    <span id="teamonefmg2" data-result="{{tip.team_one_fm_gm2}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_one_fm_gm2 == 'lost' %}
+                                    <span id="teamonefmg2" data-result="{{tip.team_one_fm_gm2}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamonefmg2" data-result="{{tip.team_one_fm_gm2}}"  class="bg-info">N</span>
+                                   {%endif%}
+                                  {% if tip.team_one_fm_gm3 == 'win' %}
+                                    <span id="teamonefmg3" data-result="{{tip.team_one_fm_gm3}}" class="bg-success">W</span>
+                                    {%elif tip.tip.team_one_fm_gm3 == 'draw' %}
+                                    <span id="teamonefmg3" data-result="{{tip.team_one_fm_gm3}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_one_fm_gm3 == 'lost' %}
+                                    <span id="teamonefmg3" data-result="{{tip.team_one_fm_gm3}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamonefmg3" data-result="{{tip.team_one_fm_gm3}}"  class="bg-info">N</span>
+                                   {%endif%}
+                                  {% if tip.team_one_fm_gm4 == 'win' %}
+                                    <span id="teamonefmg4" data-result="{{tip.team_one_fm_gm4}}" class="bg-success">W</span>
+                                    {%elif tip.team_one_fm_gm4 == 'draw' %}
+                                    <span id="teamonefmg4" data-result="{{tip.team_one_fm_gm4}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_one_fm_gm4 == 'lost' %}
+                                    <span id="teamonefmg4" data-result="{{tip.team_one_fm_gm4}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamonefmg4" data-result="{{tip.team_one_fm_gm4}}"  class="bg-info">N</span>
+                                   {%endif%}
+                                  {% if tip.team_one_fm_gm5 == 'win' %}
+                                    <span id="teamonefmg5" data-result="{{tip.team_one_fm_gm5}}" class="bg-success">W</span>
+                                    {%elif tip.team_one_fm_gm5 == 'draw' %}
+                                    <span id="teamonefmg5" data-result="{{tip.team_one_fm_gm5}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_one_fm_gm5 == 'lost' %}
+                                    <span id="teamonefmg5" data-result="{{tip.team_one_fm_gm5}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamonefmg5" data-result="{{tip.team_one_fm_gm5}}"  class="bg-info">N</span>
+                                   {%endif%}
+
+                               </div>
+                               <div id="team2-form">
+                                <h6>{{tip.teamtwo}} Last 5 Games</h6>
+
+                                   {% if tip.team_two_fm_gm1 == "win" %}
+                                    <span id="teamtwofmg1" data-result="{{tip.team_two_fm_gm1}}" class="bg-success">W</span>
+                                    {% elif tip.team_two_fm_gm1 == 'draw' %}
+                                    <span id="teamtwofmg1" data-result="{{tip.team_two_fm_gm1}}"  class="bg-warning">D</span>
+                                    {% elif tip.team_two_fm_gm1 == 'lost' %}
+                                    <span id="teamtwofmg1" data-result="{{tip.team_two_fm_gm1}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamtwofmg1" data-result="{{tip.team_two_fm_gm1}}"   class="bg-info">N</span>
+                                   {%endif%}
+                                   {% if tip.team_two_fm_gm2 == "win" %}
+                                    <span id="teamtwofmg2" data-result="{{tip.team_two_fm_gm2}}" class="bg-success">W</span>
+                                    {%elif tip.team_two_fm_gm2 == 'draw' %}
+                                    <span id="teamtwofmg2" data-result="{{tip.team_two_fm_gm2}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_two_fm_gm2 == 'lost' %}
+                                    <span id="teamtwofmg2" data-result="{{tip.team_two_fm_gm2}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamtwofmg2" data-result="{{tip.team_two_fm_gm2}}"   class="bg-info">N</span>
+                                   {%endif%}
+                                   {% if tip.team_two_fm_gm3 == "win" %}
+                                    <span id="teamtwofmg3" data-result="{{tip.team_two_fm_gm3}}" class="bg-success">W</span>
+                                    {%elif tip.team_two_fm_gm3 == 'draw' %}
+                                    <span id="teamtwofmg3" data-result="{{tip.team_two_fm_gm3}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_two_fm_gm3 == 'lost' %}
+                                    <span id="teamtwofmg3" data-result="{{tip.team_two_fm_gm3}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamtwofmg3" data-result="{{tip.team_two_fm_gm3}}"   class="bg-info">N</span>
+                                   {%endif%}
+                                   {% if tip.team_two_fm_gm4 == "win" %}
+                                    <span id="teamtwofmg4" data-result="{{tip.team_two_fm_gm4}}" class="bg-success">W</span>
+                                    {%elif tip.team_two_fm_gm4 == 'draw' %}
+                                    <span id="teamtwofmg4" data-result="{{tip.team_two_fm_gm4}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_two_fm_gm4 == 'lost' %}
+                                    <span id="teamtwofmg4" data-result="{{tip.team_two_fm_gm4}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamtwofmg4" data-result="{{tip.team_two_fm_gm4}}"   class="bg-info">N</span>
+                                   {%endif%}
+                                   {% if tip.team_two_fm_gm5 == "win" %}
+                                    <span id="teamtwofmg5" data-result="{{tip.team_two_fm_gm5}}" class="bg-success">W</span>
+                                    {%elif tip.team_two_fm_gm5 == 'draw' %}
+                                    <span id="teamtwofmg5" data-result="{{tip.team_two_fm_gm5}}"  class="bg-warning">D</span>
+                                    {%elif tip.team_two_fm_gm5 == 'lost' %}
+                                    <span id="teamtwofmg5" data-result="{{tip.team_two_fm_gm5}}"  class="bg-danger">L</span>
+                                    {%else %}
+                                    <span id="teamtwofmg5" data-result="{{tip.team_two_fm_gm5}}"   class="bg-info">N</span>
+                                   {%endif%}
+
+                               </div>
+                           </div>
+                           
+                           <div  class="team1-mp missing-players-div">
+                                <h6>{{tip.teamone}} Missing Players</h6>
+                               {% if tip.teamtwo != 'Not-Provided' %}
+                               <span id="team1mp" >{{tip.team_one_mp}}</span>
+                               {% else %}
+                               <small><span class="text-info ">Unavailable info</span></small>
+                               {%endif %}
+                           </div>
+                           <div  class="team2-mp missing-players-div">
+                            <h6>{{tip.teamtwo}} Missing Players</h6>
+                               {% if tip.teamtwo != 'Not-Provided' %}
+                              <span id="team2mp">{{tip.team_two_mp}}</span>,
+                               {%else %}
+<small><span class="text-info ">Unavailable info</span></small>
+                               {%endif%}
+                       </div>
+                       </div>
+                       <div  class="pred-desc p-1 font-weight-light">
+                           <h6 style="text-decoration: underline;" class="p-1">Match Overview <span id="written_on" data-written="{{tip.date}}" ><small>written [{{tip.date}}]</small></span></h6>
+                       
+                        <div id="matchdesc">
+                            {% if tip.match_overview != 'Not-Provided' %}
+                            {{tip.match_overview}}
+                            {%else%}
+                            <small><span class="text-info ">Unavailable info</span></small>
+                            {%endif%}
+                        </div> 
+                       </div>
+                   </div>
+                   <div class="card-footer p-0">
+                       <div style="text-decoration: underline;font-weight: bold;" class="p-2">Predictions</div>
+                       <div >
+                        <div>- <span  id="tip1type">{{tip.prediction_one_type}}</span><span  class="p-1 text-success" id="tip1value">{{tip.prediction_one_value}} </span><span class="p-1" id="tip1odds">@ {{ tip.prediction_one_odds }}</span></div>
+                        {% if tip.prediction_two_value != 'Not-Provided' %}
+                           <div>- <span  id="tip2type">{{tip.prediction_two_type}}</span><span  class="p-1 text-success" id="tip2value">{{tip.prediction_two_value}}</span><span class="p-1" id="tip2odds">@ {{tip.prediction_two_odds}}</span> </div>
+                         {% else %}
+                               <div><span  id="tip2type"></span><span  class="p-1 text-success" id="tip2value"></span><span class="p-1" id="tip2odds"></span> </div>
+
+                           {%endif%}
+                           {% if tip.prediction_three_value != 'Not-Provided' %}
+                        <div>- <span style="display: none;"  id="tip3type">{{tip.prediction_three_type}}</span><span  class="p-1 text-success" id="tip3value">{{tip.prediction_three_value}}</span><span class="p-1" id="tip3odds">@ {{tip.prediction_three_odds}} </span></div>
+                         {%else%}
+                        <div> <span style="display: none;"  id="tip3type"></span><span  class="p-1 text-success" id="tip3value"></span><span class="p-1" id="tip3odds"></span></div>
+
+                          {%endif%}
+                       </div>
+                     
+                   </div>
+               </div>
+
+           </div>
+
+   {%endblock%}

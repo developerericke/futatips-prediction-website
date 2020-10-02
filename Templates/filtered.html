@@ -1,0 +1,26 @@
+{% extends 'front-skeleton.html' %}
+{% load static %}
+            <!-- content-section -->
+
+            {%block content %}
+        
+            <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div>
+            <div id="user-preference" >
+                <h4 class="font-weight-bolder" style="text-decoration: underline;" >{{categories}}</h4>
+                <div class="card p-2">
+                    {% if category == 'Leagues' %}
+                    {% for filter in filteres %}
+                    <a href="/filtered/{{category}}?q={{filter}}/">{{filter}} <small>[{{filter.country}}]</small></a>
+                    {%endfor%}
+                    {%endif%}
+                    {% if category == 'League_filtered' %}
+                    {% for match in games %}
+                    <a href="/view-prediction/{{match.game_title}}/{{match.kickoff_date}}/">{{match}} [{{match.kickoff_date}}] <small>[{{match.league}}]</small></a>
+                    {%endfor%}
+                    {%endif%}
+
+                </div>
+               
+            </div>
+
+            {%endblock%}

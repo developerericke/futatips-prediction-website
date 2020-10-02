@@ -1,0 +1,157 @@
+body{
+    margin:0;
+    padding:0;
+}
+#page-wrapper{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    
+}
+#content-wrapper{
+    width: 100%;
+    padding-bottom: 100px;
+}
+#footer-wrapper{
+    position: absolute;
+    bottom: 00;
+    height: auto;
+    width:100%;
+}
+nav li a{
+    text-decoration: underline;
+}
+nav img{
+    width:100px;
+}
+.stats-center .card{
+  
+    width: 50%;
+   height:150px;
+     margin-bottom: 10px;
+}
+.account-action .card{
+    width:50%;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+#addpred form{
+    width:95%;
+    margin-left: 2.5%;
+}
+#addpred form label{
+    font-weight: bold;
+    font-size: small;
+}
+.collapsebtn{
+    width:70%;
+    margin-left: 15%;
+    margin-bottom: 10px;
+}
+#addpred form button{
+    width:50%;
+    border-radius: 10px;
+    margin-top:20px;
+    margin-left: 25%;
+}
+#detailed-admin-pred{
+    width:100%;
+}
+#detailed-admin-pred img{
+    width:95%;
+    margin-left: 2.5%;
+    height: 200px;
+}
+.card-footer div{
+    display: block;
+    padding: 2px 10px;
+}
+.match-info{
+    font-size: small;
+    display: block;
+    padding: 0px 5px;
+}
+#team-forms{
+    text-align: center;
+    padding: 0px 10px;
+    height: 150px;
+}
+#team-forms div{
+    padding: 5px;
+}
+#team-forms h6{
+    font-weight: bold;
+}
+#team-forms span{
+  padding: 5px 10px;
+}
+#match-det-info{
+    width: 50%;
+    margin-left: 3%;
+    margin-top: 2%;
+    padding: 5px 0px;
+    border:1px solid gray;
+    border-radius: 0 0 10px 10px;
+    
+}
+.missing-players-div{
+    padding: 0px 10px;
+    
+}
+.missing-players-div h6{
+    
+    text-decoration: underline;
+}
+.pred-desc{
+    padding: 0px 10px;
+}
+.pred-desc div{
+    border:1px solid lightsteelblue;
+    padding: 10px 0px;
+}
+#user-details-manage{
+    border:1px solid gray;
+}
+#manage-password{
+    margin-top:20px;
+    border:1px solid gray;
+}
+#danger-zone{
+    border:1px solid gray;
+    margin-top: 30px;
+}
+#verified-mail-wrapper{
+    margin-top:10px;
+    /* width:80%;
+    margin-left: 10%;
+    border:2px solid lightslategrey;
+    border-radius: 5px 5px 10px 10px; */
+    background-color: whitesmoke;
+}
+#setup-account{
+    /* width:60%;
+    margin-left: 20%; */
+    background-color: white;
+}
+#authenticate-user-wrapper{
+    margin-top: 30px;
+    width:95%;
+    margin-left:2.5%;
+    border:2px solid lightgray;
+}
+#img-preview img{
+    width:120px;
+    height: 50px;
+   }
+#my-predictions a{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin:7px 0;
+}
+#my-predictions div{
+    width:90%;
+    margin-left: 5%;
+    border-radius: 10px 10px 20px 20px;
+}

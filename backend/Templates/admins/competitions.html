@@ -1,0 +1,87 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div>
+               {% csrf_token %}
+               <h4 style="text-decoration: underline;" class="font-weight-bold text-center p-2">Competitions Information</h4>
+                <!-- manage Competitions -->
+                <div style="display:none" class="form-group">
+                    <label class="m-2" style="text-decoration: underline;font-weight: bold;" id="comp-seach-label" for="search_comp"><small>Search Countries and  Leagues</small></label>
+                    <div class="input-group" id="findcompetition">
+                        <input placeholder="Search Countries and Leagues" type="text" name="search_comp" id="search_comp" class="form-control">
+                        <div class="input-group-append">
+                            <button id="search_comp_btn" class="btn btn-success btn-sm">Search ...</button>
+                        </div>
+                    </div>
+                    <div id="search_comp_result"  class="p-3 m-1" style="background-color: whitesmoke;display: none">
+                        <div id="noresult" style="display:none" class="alert alert-warning text-center">
+                           <small>We couldn't find any results matching your query.Try again with more descriptive keywords</small> 
+                        </div>
+                        <div style="font-size: x-small;display: none;"  class="text-info search_res_val">
+                            <span class="font-weight-bolder p-1"  id="search_countries"></span> Countries Found
+                        </div>
+                        <div class="form-group p-1">
+                            <select style="font-size: smaller;display: none" name="countryselect" id="countryeselect" class="form-control">
+                                <option value="default">-- Select Country --</option>
+                                <option value="league1">English</option>
+                            </select>
+                        </div>
+                        <div style="font-size: x-small" style="display: none;" class="text-info search_res_val">
+                            <span class="font-weight-bolder p-1" id="search_leagues"></span> Leagues Found
+                        </div>
+                        <div class="form-group p-1">
+                            <select style="font-size: smaller;display: none;"   name="leagueselect" id="leagueselect" class="form-control">
+                                <option value="default">-- Select Leagues --</option>
+                                <option value="league1">English Premier League</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <!-- add competition -->
+
+                <div id="league-manage">
+                    <div class="m-3 border p-2">
+                        <form id="addcountryform">
+                            <h5 style="text-decoration: underline;" class="text-center text-info p-1">Add a Country</h5>
+                        <div class="alert font-weight-bold text-center p-0 " style="display: none;" id="add-country-status"></div>
+                        <input placeholder="Country" type="text" id="addcountry" name="country" class="form-control">
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-sm m-2 " id="addcountrybtn">Add Country</button>
+                        </div>
+                        </form>
+
+                        
+                    </div>
+                   <div class="m-3 border p-1">
+                    <h5 style="text-decoration: underline;" class="text-center text-info p-1">Add a League</h5>
+                    <div class="alert font-weight-bold text-center p-0 " style="display: none;" id="add-league-status"></div>
+                    <form id="addleagueform">
+                          <select name="country" id="country-selected" class="form-control m-1">
+                        <option  value="default">--Select Country--</option>
+                        {% for country in countries %}
+                        <option value="{{country.country}}">{{country.country}}</option>
+                         {%endfor%}
+                    </select>
+                     <input  name="league" type="text" id="leaguename" placeholder="League Name" class="form-control m-1">
+                     <div class="custom-file m-1">
+                        <label for="leagueicon" class="custom-file-label">Select League Image</label>
+                        <input id="leagueicon" disabled type="file" class="custom-file-input">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" style="margin-top: 3px;" id="addleaguebtn" class="btn btn-success btn-sm m-2 ">Add League</button>
+                    </div>
+                    </form>
+
+                    
+                   </div>
+                   
+                </div>
+            </div>
+
+  {%endblock%}

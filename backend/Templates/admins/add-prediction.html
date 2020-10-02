@@ -1,0 +1,259 @@
+{% extends 'admins/backend-skeleton.html' %}
+{% load static %}
+           <!-- page content -->
+
+  {% block content %}
+           <!-- page content -->
+           <div id="addpred" class="card">
+         
+            <div class=" lead m-2 p-2">Welcome <span style="text-decoration: underline;font-weight: bold;" class="text-info">{{request.user}} ,</span> </div>
+            <div style="display: none;" id="successmsg" class="alert text-center alert-success m-2">
+            </div>
+            <div style="display: none;" id="failuremsg" class="alert text-center alert-danger m-2">
+            
+            </div>
+               <div id="form-wrapper" >
+                <div style="text-decoration: underline;" class="text-center p-2 text-dark font-weight-bold" ><small><span style="font-size: small;display: none" id="editmode" class="p-1 text-warning">[Edit Mode]</span></small>Use the Form Below to Add your prediction <small>(All fields marked with <span class="text-danger">*</span> are required )</small> </div>
+                
+                <form id="add-pred-form" class="border p-2">
+                     {% csrf_token %}
+                     <input type="text" value="" hidden name="game-slug" id="game-slug">
+                    <input type="text" value="add" hidden name="actiontype" id="someactiontype">
+                      <div style="display: none;" id="prediction-identify"></div>
+                     <div class="form-group">
+                         <label for="country">Country <span class="text-danger">*</span></label>
+
+                          <select required  name="country" id="country" class="form-control">
+                             <option value="">--Select Country--</option>
+                             {% for country in countries %}
+                             <option  value="{{country}}">{{country}}</option>
+                             {%endfor%}
+                         </select>
+                     </div>
+                     <div class="form-group">
+                        <label for="league">League <span class="text-danger">*</span></label>
+                         <select required  name="league" id="league" class="form-control">
+                             <option value="">--Select League--</option>
+                             {% for league in leagues %}
+                             <option style="display:none" class="{{league.country}}" value="{{league}}">{{league}}</option>
+                             {%endfor%}
+                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="game-title">Match <span class="text-danger">*</span> </label>
+                     <input required type="text" placeholder="i.e Burnley vs Watford" name="game-title" id="game-title" class="form-control">
+                     </div>
+                     <div class="form-group">
+                         <label for="kickoffdate">Kickoff Date <span class="text-danger">*</span></label>
+                          <input required type="date" name="kickoffdate" id="kickoffdate" class="form-control">
+                     </div>
+                     <div class="form-group">
+                         <label for="kickofftime">Kickoff Time <span class="text-danger">*</span></label>
+                          <input required type="time" name="kickofftime" id="kickofftime" class="form-control">
+                     </div>
+                    
+                     
+                     <div class="form-group">
+                         <label for="match-image">Match Image <span class="text-danger">*</span></label><br>
+                         <div class="form-check-inline">
+                             <label  class="form-check-label font-weight-normal">
+                                 <input type="radio" checked  value="defaultimg" onclick="document.querySelector('#custom_img_file').style.display='none' " name="matchimg-opt" id="match-img" class="form-check-input">
+                                 Use default Match Image
+                             </label>
+                             
+                         </div>
+                         <div class="form-check-inline">
+                             <label  class="form-check-label font-weight-normal">
+                                 <input disabled type="radio"  value="customimg"  onclick="document.querySelector('#custom_img_file').style.display ='inherit'" name="matchimg-opt" id="match-img" class="form-check-input ">
+                                 Use Custom Image
+                             </label>
+                             
+                         </div>
+                     </div>
+                     <div id="custom_img_file" style="display: none;margin-bottom:10px;" class="custom-file" >
+                         <input type="file" name="match-image-file" class="custom-file-input" id="match_img_file">
+                         <label  class="custom-file-label " id="img-select-label"  for="match_img_file">Click here to Select Image</label>
+                     </div>
+                     <div id="img-preview" style="display: none;" class="p-1">
+                        <small><div style="text-decoration: underline;" class="p-1 font-weight-lighter"> Selected Image</div></small>
+                         <img id="to-prev" src="#" alt="image-preview">
+                     </div>
+                     <div class="border p-2">
+                         <small><div class="p-1 text-info" style="text-decoration:underline">Enter Atleast One Prediction</div></small>
+                         <div class="btn border collapsebtn  text-center bg-info font-weight-bold"  data-target="#predone" data-toggle="collapse">Add prediction 1 <span class="text-danger">*</span></div>
+
+                         <div id="predone" class="form-group p-3 border collapse">
+                             
+                             <label for="pred-one">Prediction One <span class="text-danger">*</span></label>
+                             <select class="form-control m-1" name="pred_one-type" id="pred_one_type">
+                                 <option value="" class="disabled">--Select Prediction Type --</option>
+                                 <option value="Both teams to Score" >Both Teams to Score</option>
+                                 <option value="Match Winner">Match Winner</option>
+                                 <option value="Total Goals">Goals Over</option>
+                                 <option value="Total Goals">Goals Under</option>
+                                 <option value="Goal Scorer">Goal Scorer</option>
+                             </select>
+                             <input type="text" placeholder="Prediction One" name="pred-one" id="pred-one" class="form-control m-1">
+                             <input type="number" step="0.01" name="pred-one-odds" class="form-control m-1" id="pred_one_odds" placeholder="Odds i.e 2.3">
+                           
+                           
+                         </div>
+                         <div class="btn border collapsebtn  text-center bg-info font-weight-bold"  data-target="#predtwo" data-toggle="collapse">Add prediction 2</div>
+                       
+                         <div id="predtwo" class="form-group border p-3 collapse">
+                             
+                             <label for="pred-one">Prediction Two</label>
+                             <select class="form-control m-1" name="pred_two_type" id="pred_two_type">
+                                        <option value="" class="disabled">--Select Prediction Type --</option>
+                                 <option value="Both teams to Score" >Both Teams to Score</option>
+                                 <option value="Match Winner">Match Winner</option>
+                                 <option value="Total Goals">Goals Over</option>
+                                 <option value="Total Goals">Goals Under</option>
+                                 <option value="Goal Scorer">Goal Scorer</option>
+                             </select>
+                             <input type="text" placeholder="Prediction Two Here" name="pred-two" id="pred-two" class="form-control m-1">
+                             <input type="number" step="0.01" name="pred-two-odds" class="form-control m-1" id="pred-two-odds" placeholder="Odds i.e 2.3">
+                           
+                           
+                         </div>
+     
+                         <div class="btn border collapsebtn text-center bg-info font-weight-bold"  data-target="#predthree" data-toggle="collapse">Add prediction 3</div>
+                         <div id="predthree" class="form-group border p-3 collapse">
+                             
+                             <label for="pred-three">Prediction Three</label>
+                             <select class="form-control m-1" name="pred_three-type" id="pred_three_type">
+                                          <option value="" class="disabled">--Select Prediction Type --</option>
+                                 <option value="Both teams to Score" >Both Teams to Score</option>
+                                 <option value="Match Winner">Match Winner</option>
+                                 <option value="Total Goals">Goals Over</option>
+                                 <option value="Total Goals">Goals Under</option>
+                                 <option value="Goal Scorer">Goal Scorer</option>
+                             </select>
+                             
+                             <input type="text" placeholder="Prediction Three Value" name="pred-three" id="pred-three" class="m-1 form-control">
+                             <input type="number" step="0.01" name="pred-three-odds" class="form-control m-1" id="pred-three-odds" placeholder="Odds i.e 2.3"> 
+                           
+                         </div>
+                         
+                       
+                     </div>
+                     <div class="form-group">
+                         <label for="venue">Venue</label>
+                         <input type="text" name="venue" id="game-venue" class="form-control">
+                     </div>
+                    
+                     <div class="form-group ">
+                         <label for="referee">Referee</label>
+                         <input  type="text" name="referee" id="referee" class="form-control">
+                     </div>
+                     <div class="form-group">
+                         <label for="description">Match Overview</label>
+                         <textarea name="match-desc" id="match-description"  rows="1" class="form-control"></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label for="description">Team-one Missing Players <small>(use <mark>,</mark> to separate players i.e Lewandoski(injured),Gnabry(injured))</small></label>
+                        <textarea name="team-one-mp"   id="team-one-mp"  rows="1" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Team-two Missing Players  <small>(use <mark>#</mark> to separate players i.e Aguero#Sterling)</small> </label>
+                        <textarea name="team-two-mp" id="team-two-mp"  rows="1" class="form-control"></textarea>
+                    </div>
+                    <input hidden value="" id="write_date" type="text">
+                     <div class="form-group">
+                         <div class="form-check-inline">
+                             <label for="tmonetoggle" class="form-check-label m-1">
+                                 <input type="radio" onclick="document.querySelector('#teamonesect').style.display='inherit';document.querySelector('#teamtwosect').style.display='none'" name="tmtoggle" class="form-check-input" id="tmonetoggle">Add Team 1 Form
+                             </label>
+                             <label for="tmtwotoggle" class="form-check-label m-1">
+                                <input type="radio" onclick="document.querySelector('#teamonesect').style.display='none';document.querySelector('#teamtwosect').style.display='inherit'" name="tmtoggle" class="form-check-input" id="tmtwotoggle">Add Team 2 Form
+                            </label>
+                         </div>
+                     </div>
+                     <div id="teamonesect" style="display: none;" class="form-group">
+                         <label style="text-decoration: underline;" for="team1form" class="text-info">Team 1 Form</label><br>
+                          
+                           <label style="font-weight: normal;font-size: x-small;" for="match5">Game 5 (Last Game)</label>
+                           <select style="font-size: x-mall;" class="form-control" name="match5" id="match5">
+                               <option value="">--select result --</option>
+                               <option value="win">Won</option>
+                               <option value="draw">Draw</option>
+                               <option value="lost">Lost</option>
+                           </select>
+                           <label style="font-weight: normal;font-size: x-small;" for="match4">Game 4</label>
+                           <select style="font-size: x-mall;" class="form-control" name="match4" id="match4">
+                               <option value="">--select result --</option>
+                               <option value="win">Won</option>
+                               <option value="draw">Draw</option>
+                               <option value="lost">Lost</option>
+                           </select>
+                           <label style="font-weight: normal;font-size: x-small;" for="match3">Game 3</label>
+                           <select style="font-size: x-mall;" class="form-control" name="match3" id="match3">
+                               <option value="">--select result --</option>
+                               <option value="win">Won</option>
+                               <option value="draw">Draw</option>
+                               <option value="lost">Lost</option>
+                           </select>
+                           <label style="font-weight: normal;font-size: x-small;" for="match2">Game 2</label>
+                           <select style="font-size: x-mall;" class="form-control" name="match2" id="match2">
+                               <option value="">--select result --</option>
+                               <option value="win">Won</option>
+                               <option value="draw">Draw</option>
+                               <option value="lost">Lost</option>
+                           </select>
+                           <label style="font-weight: normal;font-size: x-small;" for="match1">Game 1</label>
+                           <select style="font-size: x-mall;" class="form-control" name="match1" id="match1">
+                               <option value="">--select result --</option>
+                               <option value="win">Won</option>
+                               <option value="draw">Draw</option>
+                               <option value="lost">Lost</option>
+                           </select>
+                     </div>
+                     <div id="teamtwosect" style="display: none;" class="form-group">
+                        <label style="text-decoration: underline;" class="text-info" for="team1form">Team 2 Form</label><br>
+                         
+                          <label style="font-weight: normal;font-size: x-small;" for="match5-2">Game 5 (Last Game)</label>
+                          <select style="font-size: x-mall;" class="form-control" name="match5-2" id="match5-2">
+                              <option value="">--select result --</option>
+                              <option value="win">Won</option>
+                              <option value="draw">Draw</option>
+                              <option value="lost">Lost</option>
+                          </select>
+                          <label style="font-weight: normal;font-size: x-small;" for="match4-2">Game 4</label>
+                          <select style="font-size: x-mall;" class="form-control" name="match4-2" id="match4-2">
+                              <option value="">--select result --</option>
+                              <option value="win">Won</option>
+                              <option value="draw">Draw</option>
+                              <option value="lost">Lost</option>
+                          </select>
+                          <label style="font-weight: normal;font-size: x-small;" for="match3-2">Game 3</label>
+                          <select style="font-size: x-mall;" class="form-control" name="match3-2" id="match3-2">
+                              <option value="">--select result --</option>
+                              <option value="win">Won</option>
+                              <option value="draw">Draw</option>
+                              <option value="lost">Lost</option>
+                          </select>
+                          <label style="font-weight: normal;font-size: x-small;" for="match2-2">Game 2</label>
+                          <select style="font-size: x-mall;" class="form-control" name="match2-2" id="match2-2">
+                              <option value="">--select result --</option>
+                              <option value="win">Won</option>
+                              <option value="draw">Draw</option>
+                              <option value="lost">Lost</option>
+                          </select>
+                          <label style="font-weight: normal;font-size: x-small;" for="match1-2">Game 1</label>
+                          <select style="font-size: x-mall;" class="form-control" name="match1-2" id="match1-2">
+                              <option value="">--select result --</option>
+                              <option value="win">Won</option>
+                              <option value="draw">Draw</option>
+                              <option value="lost">Lost</option>
+                          </select>
+                    </div>
+                     <button type="submit" id="add-pred-button" class="btn btn-success">Submit Prediction</button>
+                    
+               
+                </form>
+               </div>
+              
+              
+           </div>
+
+    {%endblock%}

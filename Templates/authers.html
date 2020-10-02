@@ -1,0 +1,18 @@
+{% extends 'front-skeleton.html' %}
+{% load static %}
+            <!-- content-section -->
+            {% block content %}
+          <div class="text-center p-3 text-info" style="text-decoration: underline;"><h4>Meet Our Team</h4></div>
+         <div id="authers" class="d-flex flex-wrap">
+             <div class="card">
+              <img src="{% static '/images/eric-avatar.jpg' %}" class="card-img-top"  alt="image">
+                  <div class="card-body">
+                    <h4 class="card-title" style="text-decoration: underline;">Eric Nderitu</h4>
+                    <p class="card-text font-weight-lighter">Founder,Futatips</p>
+                  </div>
+                  
+              
+             </div>
+
+         </div>
+            {%endblock%}

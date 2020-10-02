@@ -1,0 +1,41 @@
+{% extends 'front-skeleton.html' %}
+{% load static %}
+            <!-- content-section -->
+           
+
+            {% block content %}
+            <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div>
+         
+            <div id="accumulator-section" class="text-center">
+                {% if date == 'Upcoming' %}
+                <h5 style="text-decoration: underline;">Upcoming Games</h5>
+                {%else%}
+<h5 style="text-decoration: underline;">All Games Today <span>[{{date}}]</span> </h5>
+                {%endif%}
+                <table class="table table-responsive-md table-striped table-bordered">
+                    <thead>
+                      <tr class="text-center">
+                          <th>League</th>
+                          <th>Date</th>
+                          <th>Match</th>
+                          <th>Prediction</th>
+                      </tr>
+                    </thead>
+                    <tbody id="accum-games">
+                       {% for tip in tips %}
+                        <tr class="text-center">
+
+                            <td><img src="{% static  '/images/epl-logo.jpg' %} " alt="league image"></td>
+                            <td>{{tip.kickoff_date}}</td>
+                            <td>{{tip.match}}</td>
+                            <td>{{tip.prediction_one_type}} - {{tip.prediction_one_value}} </td>
+                        </tr>
+                         {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+
+            {%endblock%}
+           
+            
+           
