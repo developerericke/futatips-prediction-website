@@ -19,7 +19,7 @@
             <!-- nav section -->
 
             <nav  class="navbar navbar-expand-md navbar-dark bg-dark sticky-top  ">
-                <div class="navbar-brand p-0 m-0" style="background-color:wheat">
+                <div class="navbar-brand p-0 m-0" style="background-color:white">
                     <a href="/" >
                     <img class="rounded m-0 p-0 " src="{% static 'images/site-logo.png' %}" alt="logo" >
                 </a>
@@ -83,5 +83,31 @@
              </footer>
          </div>
     </div>
+    <script>
+     document.addEventListener('DOMContentLoaded',()=>{
+        let geturl = location.href.split('8000')[1]
+      let dsclaimershow = localStorage.getItem('dsclaimershow')
+      if (dsclaimershow === null){
+        localStorage.setItem('dsclaimershow',true)
+      }
+
+      if(geturl==='' || geturl.search('index')>-1 || geturl==='/'){
+        dsclaimershow = localStorage.getItem('dsclaimershow')
+     
+         if(dsclaimershow == 'true'){
+
+           document.querySelector('#disclaimer-container').style.display='block'
+         }else{
+            document.querySelector('#disclaimer-container').style.display='none'
+         }
+          document.querySelector('#disclaimer').addEventListener('click',function(){
+            localStorage.setItem('dsclaimershow',false)
+          })
+      }
+
+     })
+     
+
+    </script>
 </body>
 </html>

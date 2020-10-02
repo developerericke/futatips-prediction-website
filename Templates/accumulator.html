@@ -4,7 +4,7 @@
            
 
             {% block content %}
-            <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div>
+            <!-- <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div> -->
          
             <div id="accumulator-section" class="text-center">
                 {% if date == 'Upcoming' %}
@@ -16,7 +16,7 @@
                     <thead>
                       <tr class="text-center">
                           <th>League</th>
-                          <th>Date</th>
+                          <!-- <th>Date</th> -->
                           <th>Match</th>
                           <th>Prediction</th>
                       </tr>
@@ -26,7 +26,7 @@
                         <tr class="text-center">
 
                             <td><img src="{% static  '/images/epl-logo.jpg' %} " alt="league image"></td>
-                            <td>{{tip.kickoff_date}}</td>
+                            <!-- <td>{{tip.kickoff_date}}</td> -->
                             <td>{{tip.match}}</td>
                             <td>{{tip.prediction_one_type}} - {{tip.prediction_one_value}} </td>
                         </tr>

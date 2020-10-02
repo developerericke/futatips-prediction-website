@@ -3,7 +3,7 @@
             <!-- content-section -->
            
           {% block content %}
-            <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div>
+            <!-- <div class="meta-route p-1"><a href="">Epl Predictions/Today</a></div> -->
                
              <div class="prediction-center p-0 card">
                  <div class="row p-0 m-0 ">
@@ -19,7 +19,7 @@
                        
                         <div class="card-body p-1 ">
                             <div class="match-logo">
-                             <img src="{% static '/images/attachment_120154674.jpeg' %}"  alt="Match Image">
+                             <img src="{% static '/images/verses.jpg' %}"  alt="Match Image">
                             </div>
          
                            
@@ -73,7 +73,7 @@
                                         {% elif game.team_one_fm_gm1 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
                                         {% if game.team_one_fm_gm2 == 'win' %}
                                         <span class="bg-success">W</span>
@@ -82,7 +82,7 @@
                                         {% elif game.team_one_fm_gm2 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                         {% if game.team_one_fm_gm3 == 'win' %}
@@ -92,7 +92,7 @@
                                         {% elif game.team_one_fm_gm3 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                         {% if game.team_one_fm_gm4 == 'win' %}
@@ -102,7 +102,7 @@
                                         {% elif game.team_one_fm_gm4 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                         {% if game.team_one_fm_gm5 == 'win' %}
@@ -112,7 +112,7 @@
                                         {% elif game.team_one_fm_gm5 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
 
@@ -126,7 +126,7 @@
                                         {% elif game.team_two_fm_gm1 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                         {% if game.team_two_fm_gm2 == 'win' %}
@@ -136,7 +136,7 @@
                                         {% elif game.team_two_fm_gm2 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                          {% if game.team_two_fm_gm3 == 'win' %}
@@ -146,7 +146,7 @@
                                         {% elif game.team_two_fm_gm3 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                          {% if game.team_two_fm_gm4 == 'win' %}
@@ -156,7 +156,7 @@
                                         {% elif game.team_two_fm_gm4 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
 
                                          {% if game.team_two_fm_gm5 == 'win' %}
@@ -166,7 +166,7 @@
                                         {% elif game.team_two_fm_gm5 == 'lost' %}
                                             <span class="bg-danger">L</span>
                                         {%else%}
-                                          <span class="bg-transparent">N</span>
+                                          <span class="bg-info">N</span>
                                         {%endif%}
                                  </div>
                                 </div>
