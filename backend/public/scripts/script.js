@@ -119,7 +119,7 @@ if(currenturl.search('login')>-1){
                                         }
 
                                     }
-                                    xhr.open('POST','https://futatips.herokuapp.com/admins/login/')
+                                    xhr.open('POST','/admins/login/')
                                     xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
                                     xhr.setRequestHeader('X-CSRFToken',document.querySelector('[name=csrfmiddlewaretoken]').value)
                                     xhr.send('username='+tologuser.value+'&next='+grabById('nextroute').value+'&password='+tologpassword.value+'&csrfmiddlewaretoken='+document.querySelector('[name=csrfmiddlewaretoken]').value)
@@ -445,7 +445,7 @@ if(currenturl.search('login')>-1){
                    
                   
                     
-                    xhr.open('POST','https://futatips.herokuapp.com/admins/addprediction/')
+                    xhr.open('POST','/admins/addprediction/')
                     xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
                     xhr.setRequestHeader('X-CSRFToken',document.querySelector('[name=csrfmiddlewaretoken]').value)
                     xhr.send(to_send_data)
@@ -509,7 +509,7 @@ if(currenturl.search('login')>-1){
   deletebutton.addEventListener('click',function(){
       this.disabled=true
     this.innerHTML='<small>Deleting</small><span class="spinner-border spinner-border-sm"></span>'
-     fetch('https://futatips.herokuapp.com/admins/deleteprediction/',{
+     fetch('/admins/deleteprediction/',{
          method:'POST',
         headers: {'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
         body:'game='+this.getAttribute('data-game')+'&date='+this.getAttribute('data-game-date')
@@ -571,7 +571,7 @@ if(currenturl.search('login')>-1){
             usernamelabel.classList.remove('text-danger')
             usernamelabel.classList.add('text-success')
             usernamelabel.innerHTML='<small>Checking <span class="font-weight-bolder"> '+this.value+'</span> <span class="spinner-grow spinner-grow-sm"></span></small>'
-           fetch('https://futatips.herokuapp.com/admins/checkusername/',{
+           fetch('/admins/checkusername/',{
                method:'POST',
                headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                body:'username='+this.value
@@ -649,7 +649,7 @@ if(currenturl.search('login')>-1){
                 proceedbtn.disabled=true
                 let formdatat = $('#registeruser').serialize()
             
-                fetch('https://futatips.herokuapp.com/admins/get-started/',{
+                fetch('/admins/get-started/',{
                     method:'POST',
                     headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value,
                 'Verification-Token':document.querySelector('#verifytok').getAttribute('data-verifytoken')},
@@ -719,7 +719,7 @@ if(currenturl.search('login')>-1){
             alertstatus.classList.remove('alert-danger');alertstatus.classList.add('alert-success')
             alertstatus.innerHTML='<small>Processing request.Please wait <span class="spinner-border spinner-border-sm"></span></small>'
       
-            fetch('https://futatips.herokuapp.com/admins/update-password/',{
+            fetch('/admins/update-password/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value,'Verification-Token':document.querySelector('#verifytok').getAttribute('data-verifytoken')},
                 body:'password='+inputs_reset[0].value
@@ -774,7 +774,7 @@ if(currenturl.search('login')>-1){
             action_status.classList.add('alert-success')
             action_status.innerHTML="<small>Working <span class='spinner-border spinner-border-sm'></span></small>"
             
-            fetch('https://futatips.herokuapp.com/admins/addtiper/',{
+            fetch('/admins/addtiper/',{
               method:'POST',
               headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
               body:'email='+email.value
@@ -818,7 +818,7 @@ if(currenturl.search('login')>-1){
     recoveraccount.forEach((action)=>{
         action.addEventListener('click',function(){
             this.innerHTML='<small>Recovering</small> <span class="spinner-border spinner-border-sm"></span>'
-            fetch('https://futatips.herokuapp.com/admins/recover-tipper/',{
+            fetch('/admins/recover-tipper/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                 body:'email='+this.getAttribute('data-user')
@@ -846,7 +846,7 @@ if(currenturl.search('login')>-1){
     banaccount.forEach((action)=>{
         action.addEventListener('click',function(){
             this.innerHTML='<small>Suspending<span class="spinner-border spinner-border-sm"></span></small> '
-            fetch('https://futatips.herokuapp.com/admins/ban-tipper/',{
+            fetch('/admins/ban-tipper/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                 body:'email='+this.getAttribute('data-user')
@@ -878,7 +878,7 @@ if(currenturl.search('login')>-1){
     deleteaccount.forEach((action)=>{
         action.addEventListener('click',function(){
             this.innerHTML='<small>Deleting<span class="spinner-border spinner-border-sm"></span></small> '
-            fetch('https://futatips.herokuapp.com/admins/delete-tipper/',{
+            fetch('/admins/delete-tipper/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                 body:'email='+this.getAttribute('data-user')
@@ -924,7 +924,7 @@ if(currenturl.search('login')>-1){
                 personaldetailsstatus.classList.add('alert-success')
                 personaldetailsstatus.classList.remove('alert-danger')
                 personaldetailsstatus.innerHTML='<small>Updating </small><span class="spinner-border spinner-border-sm"></span>'
-                fetch('https://futatips.herokuapp.com/admins/profile-update/',{
+                fetch('/admins/profile-update/',{
                     method:'POST',
                     headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                     body:'email='+email.value+'&username=Null'
@@ -981,7 +981,7 @@ if(currenturl.search('login')>-1){
                 personaldetailsstatus.classList.add('alert-success')
                 personaldetailsstatus.classList.remove('alert-danger')
                 personaldetailsstatus.innerHTML='<small>Updating </small><span class="spinner-border spinner-border-sm"></span>'
-                fetch('https://futatips.herokuapp.com/admins/profile-update/',{
+                fetch('/admins/profile-update/',{
                     method:'POST',
                     headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                     body:'username='+name.value +'&email=Null'
@@ -1068,7 +1068,7 @@ if(currenturl.search('login')>-1){
                 
                    //send to server
                    let to_send_data="old_password="+forminputs[0].value+'&new_password1='+forminputs[1].value+'&new_password2='+forminputs[1].value
-                   fetch('https://futatips.herokuapp.com/admins/change-password/',{
+                   fetch('/admins/change-password/',{
                        method:'POST',
                        headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                        body:to_send_data
@@ -1155,7 +1155,7 @@ if(currenturl.search('login')>-1){
             delstatus.classList.add('alert-success')
             delstatus.innerHTML='<small>Processing Request </small><span class="spinner-border spinner-border-sm"></span>'
 
-            fetch('https://futatips.herokuapp.com/admins/delete-account/',{
+            fetch('/admins/delete-account/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                 body:'password='+passwordfield.value
@@ -1214,7 +1214,7 @@ if(currenturl.search('login')>-1){
         if(has_valid_inputs(searchinput.value)===true){
             searchinput.style.border="1px solid blue"
                   this.innerHTML='<small>Searching </small><span class="spinner-border spinner-border-sm"></span>'
-                  fetch('https://futatips.herokuapp.com/admins/getcompetition?q='+searchinput.value).then((response)=>{
+                  fetch('/admins/getcompetition?q='+searchinput.value).then((response)=>{
                       if(response.status===200){
                         return response.json()
                       }else{
@@ -1307,7 +1307,7 @@ if(currenturl.search('login')>-1){
              let data = $('#addcountryform').serialize()
              console.log( $('#addcountryform'))
            
-            fetch('https://futatips.herokuapp.com/admins/addcountry/',{
+            fetch('/admins/addcountry/',{
                 method:'POST',
                 body:data,
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value}
@@ -1370,7 +1370,7 @@ if(currenturl.search('login')>-1){
             add_league_status.innerHTML='<small>Adding League.Please wait <span class="spinner-border spinner-border-sm"></span></small>'
             this.disabled=true
             let data = $('#addleagueform').serialize()
-            fetch('https://futatips.herokuapp.com/admins/addleague/',{
+            fetch('/admins/addleague/',{
                 method:'POST',
                 headers:{'Content-type':'application/x-www-form-urlencoded','X-CSRFToken':document.querySelector('[name=csrfmiddlewaretoken]').value},
                 body: data 
