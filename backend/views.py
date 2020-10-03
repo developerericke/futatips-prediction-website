@@ -186,7 +186,7 @@ def addtiper(request):
                         "HTMLPart": "<div style='text-align:center;font-weight:bolder;text-decoration:underline;font-size:x-large'>"
                                     "Welcome Aboard</div><br><br>"
                                     "<p>Hi there,<br> We have created an account for you at FutaTips.You can now be able to submit your football predictions as a writer."
-                                    "<br>To get started, <a style='font-weight:bolder' href='https://futatips.herokuapp.com/admins/verified-email/?token="+randomtoken+"'> click here </a><<br /><br><br>"
+                                    "<br>To get started, <a style='font-weight:bolder' href='http://futatips.herokuapp.com/admins/verified-email/?token="+randomtoken+"'> click here </a><<br /><br><br>"
                                     "If you are having issues while getting started with your new account,contact the system admin <br><br>"
                                     "<span style='text-decoration:italic'>Eric Nderitu,<br>Futatips Admin</span></p> "
                     }
@@ -252,7 +252,7 @@ def recovertiper(request):
                         "HTMLPart": "<div style='text-align:center;font-weight:bolder;text-decoration:underline;font-size:x-large'>"
                                     "Reset Password Instructions</div><br><br>"
                                     "<p>Hi there,<br> We have receieves a request to reset your password for your FutaTips Account."
-                                    "<br>To reset your password, <a style='font-weight:bolder' href='https://futatips.herokuapp.com/admins/verified-email/?token=" + randomtoken + "'> click here </a><<br /><br><br>"
+                                    "<br>To reset your password, <a style='font-weight:bolder' href='http://futatips.herokuapp.com/admins/verified-email/?token=" + randomtoken + "'> click here </a><<br /><br><br>"
                                                                                                                                                                   "If you are having issues while recovering your account ,contact the system admin <br><br>"
                                                                                                                                                                   "<span style='text-decoration:italic'>Eric Nderitu,<br>Futatips Admin</span></p> "
                     }

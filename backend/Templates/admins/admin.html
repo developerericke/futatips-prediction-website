@@ -23,11 +23,11 @@
                      <h2 class="card-title text-info font-weight-bolder">{{u_visitors}}</h2>
 
                     </div>
-                    <span class="text-center font-weight-bold card-footer">Onetime Site Visits</span>
+                    <span class="text-center font-weight-bold card-footer">Users Visited Once</span>
 
                 </div>
                    <div class="card text-center">
-                    <div class="card-body border border-dark" style="background-color: rgb(87, 117, 31);">
+                    <div class="card-body border border-dark" style="background-color: burlywood;">
                      <h2 class="card-title text-info font-weight-bolder">{{r_visitors}}</h2>
 
                     </div>
@@ -35,7 +35,7 @@
 
                 </div>
                    <div class="card text-center">
-                    <div class="card-body border border-dark" style="background-color: rgb(87, 117, 31);">
+                    <div class="card-body border border-dark" style="background-color: lightblue;">
                      <h2 class="card-title text-info font-weight-bolder">{{t_predictions}}</h2>
 
                     </div>
@@ -43,7 +43,7 @@
 
                 </div>
                 <div class="card text-center">
-                    <div class="card-body border border-dark" style="background-color: rgb(27, 56, 37);">
+                    <div class="card-body border border-dark" style="background-color: palegoldenrod;">
                      <h2 class="card-title text-success ">{{pred_views}}</h2>
                     
                     </div>
@@ -58,27 +58,28 @@
                <div class="d-flex account-action flex-wrap text-center font-weight-bolder m-1">
 
                    <div onclick="window.location.href = '/admins/add-prediction/'" class="card">
-
-                     <img src="../flower-logoa.jpg" alt="prediction" class="card-img-top">
+                   
+                     <img src="{% static 'images/add-new.png' %} " alt="prediction" class="card-img-top">
                      <div class="card-body">
+                        
                          <div class="card-title">Add Prediction</div>
                      </div>
                    </div>
                    <div  onclick="window.location.href = '/admins/manage-tip/'" class="card">
-                    <img src="../flower-logoa.jpg" alt="prediction" class="card-img-top">
+                    <img src="{% static 'images/manage-tips.png' %} " alt="prediction" class="card-img-top">
                     <div class="card-body">
                         <div class="card-title">My Predictions</div>
                     </div>
                   </div>
                   
                   <div onclick="window.location.href = '/admins/profile/'" class="card">
-                    <img src="../flower-logoa.jpg" alt="prediction" class="card-img-top">
+                    <img src="{% static 'images/profile.png' %} " alt="prediction" class="card-img-top">
                     <div class="card-body">
                         <div class="card-title">Profile</div>
                     </div>
                   </div>
                   <div onclick="window.location.href = '/admins/users/'" class="card">
-                    <img src="../flower-logoa.jpg" alt="prediction" class="card-img-top">
+                    <img src="{% static 'images/manage-users.jpg' %} " alt="prediction" class="card-img-top">
                     <div class="card-body">
                         <div class="card-title">Manage Writers</div>
                     </div>
