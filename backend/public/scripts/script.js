@@ -586,7 +586,7 @@ if(currenturl.search('login')>-1){
                 usernamelabel.classList.remove('text-success')
                 usernamelabel.classList.add('text-danger')
                 response.text().then((error)=>{
-                    console.log(error)
+                   
                     usernamelabel.innerHTML='<small>Error! '+error+'</small>'
                 })
                 
