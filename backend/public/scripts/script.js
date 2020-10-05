@@ -660,6 +660,9 @@ if(currenturl.search('login')>-1){
                         formstatus.classList.remove('alert-danger')
                         formstatus.classList.add('alert-success')
                         formstatus.innerHTML='<small>Success .Lets finalize.Everything on us now...<span class="spinner-border spinner-border-sm"></span></small>'
+                        setTimeout(() => {
+                            window.location.href ='/admins/dashboard'
+                        }, 4000);
                     }else{
                         proceedbtn.disabled=false
                         formstatus.classList.remove('alert-success')
